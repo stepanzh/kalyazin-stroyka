@@ -1,0 +1,32 @@
+{% set longdash = '&#8212;' %}
+
+
+
+<!DOCTYPE html>
+<html lang='ru'>
+<head>
+  <meta charset='utf-8' />
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>Алексей и Александр {{ longdash }} Бригада строителей из Калязина</title>
+  <link rel='stylesheet' href='css/styles.css'>
+</head>
+<body>
+  <section>
+    <h2>{{ build_services.header }}</h2>
+    {% for service in build_services.service_list %}
+    <section>
+      <h3>{{ service.header }}</h3>
+      <p>{{ service.description }}</p>
+    </section>
+    {% endfor %}
+  </section>
+  <section>
+    <h2>{{ finish_services.header }}</h2>
+    {% for service in finish_services.service_list %}
+    <section>
+      <h3>{{ service.header }}</h3>
+      <p>{{ service.description }}</p>
+    </section>
+    {% endfor %}
+  </section>
+</body>
