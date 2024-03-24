@@ -11,22 +11,20 @@
   <link rel='stylesheet' href='css/styles.css'>
 </head>
 <body>
-  <section>
-    <h2>{{ build_services.header }}</h2>
-    {% for service in build_services.service_list %}
+  {% for service in services %}
+  <article>
+    <h2>{{ service.header }}</h2>
+    {% if service.description %}<p>{{ service.description }}</p>{% endif %}
+    {% if service.service_list %}
     <section>
-      <h3>{{ service.header }}</h3>
-      <p>{{ service.description }}</p>
+      {% for subservice in service.service_list %}
+      <section>
+        <h3>{{ subservice.header }}</h3>
+        {% if subservice.description %}<p>{{ subservice.description }}</p>{% endif %}
+      </section>
+      {% endfor %}
     </section>
-    {% endfor %}
-  </section>
-  <section>
-    <h2>{{ finish_services.header }}</h2>
-    {% for service in finish_services.service_list %}
-    <section>
-      <h3>{{ service.header }}</h3>
-      <p>{{ service.description }}</p>
-    </section>
-    {% endfor %}
-  </section>
+    {% endif %}
+  </article>
+  {% endfor %}
 </body>

@@ -20,8 +20,9 @@ class Service:
 
 
 class ServiceList:
-    def __init__(self, header, service_list = None):
+    def __init__(self, header, description = None, service_list = None):
         self.header = header
+        self.description = description
         self.service_list = service_list if service_list is not None else []
 
     def add_service(self, x: Service):
@@ -29,10 +30,18 @@ class ServiceList:
 
     @classmethod
     def from_dict(cls, obj: dict):
-        service_list = ServiceList(obj['header'])
-        for service_dict in obj['services']:
+        service_list = ServiceList(obj['header'], obj.get('description', None))
+        for service_dict in obj.get('services', []):
             service_list.add_service(Service.from_dict(service_dict))
         return service_list
+
+
+class ServiceListReader:
+    def read(self, path: pathlib.Path) -> ServiceList:
+        with open(path) as io:
+            services_dict = json.load(io)
+            services = ServiceList.from_dict(services_dict)
+            return services
 
 
 class Page:
@@ -59,12 +68,6 @@ class PageWriter:
 
 class IndexPage(Page):
     name = 'index'
-    
-    def read_service_list(self, json_path: pathlib.Path, extend_key):
-        with open(json_path) as io:
-            services_dict = json.load(io)
-            services = ServiceList.from_dict(services_dict)
-            self.extend_template_variables({extend_key: services})
 
 
 def parse_commandline():
@@ -87,9 +90,14 @@ def main():
     environment = jinja2.Environment(loader=jinja2.FileSystemLoader(TEMPLATES_PATH))
     pagewriter = PageWriter(environment, pathlib.Path(args.output_dir))
 
+    service_reader = ServiceListReader()
+    build_services = service_reader.read(WORKDIR_PATH / 'content' / 'services' / 'building.json')
+    finish_services = service_reader.read(WORKDIR_PATH / 'content' / 'services' / 'finishing.json')
+    repair_services = service_reader.read(WORKDIR_PATH / 'content' / 'services' / 'repairing.json')
+    not_services = service_reader.read(WORKDIR_PATH / 'content' / 'services' / 'notservicing.json')
+
     index_page = IndexPage()
-    index_page.read_service_list(WORKDIR_PATH / 'content' / 'services' / 'building.json', 'build_services')
-    index_page.read_service_list(WORKDIR_PATH / 'content' / 'services' / 'finishing.json', 'finish_services')
+    index_page.extend_template_variables({'services': [build_services, finish_services, repair_services, not_services]})
 
     pages = [index_page]
 
