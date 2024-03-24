@@ -11,20 +11,41 @@
   <link rel='stylesheet' href='css/styles.css'>
 </head>
 <body>
-  {% for service in services %}
   <article>
-    <h2>{{ service.header }}</h2>
-    {% if service.description %}<p>{{ service.description }}</p>{% endif %}
-    {% if service.service_list %}
-    <section>
-      {% for subservice in service.service_list %}
-      <section>
-        <h3>{{ subservice.header }}</h3>
-        {% if subservice.description %}<p>{{ subservice.description }}</p>{% endif %}
-      </section>
-      {% endfor %}
-    </section>
-    {% endif %}
+    <header>
+      <h1>География работ</h1>
+    </header>
+    <p><b>Тверская</b>, <b>Московская</b> и <b>Ярославская</b> области.</p>
+    <p>Примерно, до 300 километров от города Калязин.</p>
   </article>
-  {% endfor %}
+
+  <article>
+    <header>
+      <h1>Услуги</h1>
+    </header>
+    {% for service in services %}
+    <section>
+      <h2>{{ service.header }}</h2>
+      {% if service.description %}<p>{{ service.description }}</p>{% endif %}
+      {% if service.service_list %}
+      <section>
+        {% for subservice in service.service_list %}
+        <section>
+          <h3>{{ subservice.header }}</h3>
+          {% if subservice.description %}<p>{{ subservice.description }}</p>{% endif %}
+        </section>
+        {% endfor %}
+      </section>
+      {% endif %}
+    </section>
+    {% endfor %}
+  </article>
+
+  <article>
+    <header>
+      <h1>Стоимость</h1>
+    </header>
+    <h2>Цена договорная</h2>
+    <p>На стоимость влияют удобство подвоза материала и объём подготовительных работ (например, выпиливание кустов).</p>
+  </article>
 </body>
