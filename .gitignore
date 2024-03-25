@@ -1,6 +1,7 @@
 debug
 deploy
 static/img/projects
+.DS_Store
 
 
 # Byte-compiled / optimized / DLL files
