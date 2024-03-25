@@ -3,7 +3,10 @@
 {% set phone_number = '+7 (915) 721 86-57' %}
 <!-- TODO: update whatsapp link -->
 {% set whats_app_chat_link = '' %}
-
+{% set copyright_symbol = '©' %}
+{% set copyright_year = '2024' %}
+{% set site_developer_name = 'Степан Захаров' %}
+{% set site_developer_contact_link = 'https://stepanzh.github.io' %}
 
 
 <!DOCTYPE html>
@@ -107,4 +110,12 @@
     {% endfor %}
   </article>
 
+  <footer>
+    <section>
+      <p>{{ copyright_symbol }} {{ copyright_year }} {{ site_developer_name }}</p>
+    </section>
+    <section>
+      <a target='_blank' href='{{ site_developer_contact_link }}'>Связаться с разработчиком сайта</a>
+    </section>
+  </footer>
 </body>
