@@ -1,4 +1,8 @@
 {% set longdash = '&#8212;' %}
+{% set name = 'Алексей' %}
+{% set phone_number = '+7 (915) 721 86-57' %}
+<!-- TODO: update whatsapp link -->
+{% set whats_app_chat_link = '' %}
 
 
 
@@ -45,7 +49,49 @@
     <header>
       <h1>Стоимость</h1>
     </header>
-    <h2>Цена договорная</h2>
-    <p>На стоимость влияют удобство подвоза материала и объём подготовительных работ (например, выпиливание кустов).</p>
+    <section>
+      <h2>Цена договорная</h2>
+      <p>На стоимость влияют удобство подвоза материала и объём подготовительных работ (например, выпиливание кустов).</p>
+    <section/>
   </article>
+
+  <article>
+    <header>
+      <h1>Связаться с нами</h1>
+    </header>
+
+    <section>
+      <section>
+        <header>
+          <h2>WhatsApp</h2>
+        </header>
+        <p>{{ name }}, {{ phone_number }}.</p>
+      </section>
+      <a class='btn-primary' target='_blank' href='{{ whats_app_chat_link }}'>Открыть чат</a>
+    </section>
+
+    <section>
+      <section>
+        <header>
+          <h2>Мы перезвоним</h2>
+        </header>
+        <p>Свяжемся в течение суток.</p>
+      </section>
+      <!-- TODO: open dialog with yandex form -->
+      <a class='btn-secondary' target='_blank' href='{{ whats_app_chat_link }}'>Заказать обратный звонок</a>
+    </section>
+
+    <section>
+      <section>
+        <header>
+          <h2>Вы позвоните</h2>
+        </header>
+        <p>Мы на связи с 11:00 утра до 20:00 вечера.</p>
+      </section>
+      <!-- TODO: check that tel link works -->
+      <a class='btn-tertiary' target='_blank' href='tel:{{ phone_number }}'>{{ name }}, {{ phone_number }}</a>
+    </section>
+  </article>
+
+
 </body>
