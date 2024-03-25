@@ -7,12 +7,12 @@ all: clear debug deploy
 
 debug:
 	mkdir -p $(DEBUG_DIR)
-	# cp -r $(STATIC_DIR)/* $(DEBUG_DIR)
+	cp -r $(STATIC_DIR)/* $(DEBUG_DIR)
 	python3 build.py --debug -d $(DEBUG_DIR)
 
 deploy:
 	mkdir -p $(DEPLOY_DIR)
-	# cp -r $(STATIC_DIR)/* $(DEPLOY_DIR)
+	cp -r $(STATIC_DIR)/* $(DEPLOY_DIR)
 	python3 build.py -d $(DEPLOY_DIR)
 
 syncss:

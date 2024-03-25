@@ -93,5 +93,18 @@
     </section>
   </article>
 
+  <article>
+    <header>
+      <h1>Наши проекты</h1>
+    </header>
+    
+    {% for project in projects %}
+    <section>
+      <div><img src='{{ project.image_links[0] }}' /></div> 
+      <h2>{{ project.header }}</h2>
+      <p>{{ project.description }}</p>
+    </section>
+    {% endfor %}
+  </article>
 
 </body>
