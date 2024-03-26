@@ -15,90 +15,104 @@
   <meta charset='utf-8' />
   <meta name='viewport' content='width=device-width, initial-scale=1.0'>
   <title>Алексей и Александр {{ longdash }} Бригада строителей из Калязина</title>
-  <link rel='stylesheet' href='css/styles.css'>
+  <link rel='preconnect' href='https://fonts.googleapis.com'>
+  <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+  <link href='https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap' rel='stylesheet'>
+  <link rel='stylesheet' href='css/index.css'>
 </head>
 <body>
   <article>
     <header>
-      <h1>География работ</h1>
+      <h1 class='card-h1'>География работ</h1>
     </header>
-    <p><b>Тверская</b>, <b>Московская</b> и <b>Ярославская</b> области.</p>
-    <p>Примерно, до 300 километров от города Калязин.</p>
+    <section class='card'>
+      <p class='card-p'><b>Тверская</b>, <b>Московская</b> и <b>Ярославская</b> области.</p>
+      <p class='card-p-secondary'>Примерно, до 300 километров от города Калязин.</p>
+    </section>
   </article>
 
   <article>
     <header>
-      <h1>Услуги</h1>
+      <h1 class='card-h1'>Услуги</h1>
     </header>
-    {% for service in services %}
-    <section>
-      <h2>{{ service.header }}</h2>
-      {% if service.description %}<p>{{ service.description }}</p>{% endif %}
-      {% if service.service_list %}
-      <section>
-        {% for subservice in service.service_list %}
+    <section class='card service-card'>
+      {% for service in services %}
+      <section class='service-section'>
+        <h2 class='service-h2'>{{ service.header }}</h2>
+        {% if service.description %}<p class='card-p'>{{ service.description }}</p>{% endif %}
+        {% if service.service_list %}
         <section>
-          <h3>{{ subservice.header }}</h3>
-          {% if subservice.description %}<p>{{ subservice.description }}</p>{% endif %}
+          {% for subservice in service.service_list %}
+          <section>
+            <h3 class='subservice-h3'>{{ subservice.header }}</h3>
+            {% if subservice.description %}<p class='subservice-description'>{{ subservice.description }}</p>{% endif %}
+          </section>
+          {% endfor %}
         </section>
-        {% endfor %}
+        {% endif %}
       </section>
-      {% endif %}
+      {% endfor %}
     </section>
-    {% endfor %}
   </article>
 
   <article>
     <header>
-      <h1>Стоимость</h1>
+      <h1 class='card-h1'>Стоимость</h1>
     </header>
-    <section>
-      <h2>Цена договорная</h2>
-      <p>На стоимость влияют удобство подвоза материала и объём подготовительных работ (например, выпиливание кустов).</p>
+    <section class='card'>
+      <h2 class='card-h2'>Цена договорная</h2>
+      <p class='card-p'>На стоимость влияют удобство подвоза материала и объём подготовительных работ (например, выпиливание кустов).</p>
     </section>
   </article>
 
   <article>
     <header>
-      <h1>Связаться с нами</h1>
+      <h1 class='card-h1'>Связаться с нами</h1>
     </header>
-
-    <section>
+    <section class='card'>
       <section>
-        <header>
-          <h2>WhatsApp</h2>
-        </header>
-        <p>{{ name }}, {{ phone_number }}.</p>
+        <section>
+          <header>
+            <h2 class='card-h3'>WhatsApp</h2>
+          </header>
+          <section>
+            <p class='card-p'>{{ name }}, {{ phone_number }}.</p>
+          </section>
+        </section>
+        <a class='btn-primary' target='_blank' href='{{ whats_app_chat_link }}'>Открыть чат</a>
       </section>
-      <a class='btn-primary' target='_blank' href='{{ whats_app_chat_link }}'>Открыть чат</a>
-    </section>
 
-    <section>
       <section>
-        <header>
-          <h2>Мы перезвоним</h2>
-        </header>
-        <p>Свяжемся в течение суток.</p>
+        <section>
+          <header>
+            <h2 class='card-h3'>Мы перезвоним</h2>
+          </header>
+          <section>
+            <p class='card-p'>Свяжемся в течение суток.</p>
+          </section>
+        </section>
+        <!-- TODO: open dialog with yandex form -->
+        <a class='btn-secondary' target='_blank' href='{{ whats_app_chat_link }}'>Заказать обратный звонок</a>
       </section>
-      <!-- TODO: open dialog with yandex form -->
-      <a class='btn-secondary' target='_blank' href='{{ whats_app_chat_link }}'>Заказать обратный звонок</a>
-    </section>
 
-    <section>
       <section>
-        <header>
-          <h2>Вы позвоните</h2>
-        </header>
-        <p>Мы на связи с 11:00 утра до 20:00 вечера.</p>
+        <section>
+          <header>
+            <h2 class='card-h3'>Вы позвоните</h2>
+          </header>
+          <section>
+            <p class='card-p'>Мы на связи с 11:00 утра до 20:00 вечера.</p>
+          </section>
+        </section>
+        <!-- TODO: check that tel link works -->
+        <a class='btn-tertiary' target='_blank' href='tel:{{ phone_number }}'>{{ name }}, {{ phone_number }}</a>
       </section>
-      <!-- TODO: check that tel link works -->
-      <a class='btn-tertiary' target='_blank' href='tel:{{ phone_number }}'>{{ name }}, {{ phone_number }}</a>
     </section>
   </article>
 
   <article>
     <header>
-      <h1>Наши проекты</h1>
+      <h1 class='card-h1'>Наши проекты</h1>
     </header>
     
     {% for project in projects %}

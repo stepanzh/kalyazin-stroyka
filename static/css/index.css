@@ -1,0 +1,116 @@
+:root {
+  --primary-color-50: #f7f4ef;
+  --primary-color-100: #ebe3d6;
+  --primary-color-200: #d8c8b0;
+  --primary-color-300: #c1a783;
+  --primary-color-400: #af8a60;
+  --primary-color-500: #9b7550;
+  --primary-color-600: #896145;
+  --primary-color-700: #6e4b3a;
+  --primary-color-800: #5e4035;
+  --primary-color-900: #523831;
+  --primary-color-950: #2e1e1a;
+  --neutral-color-50: #f4f3f2;
+  --neutral-color-100: #e3e1de;
+  --neutral-color-200: #c9c5bf;
+  --neutral-color-300: #aaa29a;
+  --neutral-color-400: #91877e;
+  --neutral-color-500: #847971;
+  --neutral-color-600: #6f655f;
+  --neutral-color-700: #5a514e;
+  --neutral-color-800: #4e4745;
+  --neutral-color-900: #453f3e;
+  --neutral-color-950: #262322;
+  --white: #fff;
+  
+  --regular: 300;
+}
+
+body {
+  font-family: 'Raleway', sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: 500;
+  
+  background: var(--neutral-color-50);
+  margin: 0;
+}
+
+b {
+  font-weight: 600;
+}
+
+/* region: card */
+
+.card {
+  padding: 24px;
+  background: var(--white);
+  margin-bottom: 64px;
+}
+
+.card-h1 {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0 0 24px 0;
+  text-align: center;
+}
+
+.card-h2 {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.card-h2:first-child { margin-top: 0; }
+
+.card-h3 {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.card-p {
+  font-size: 16px;
+  font-weight: 300;
+  margin: 16px 0 16px 0;
+}
+
+.card-p:first-child { margin-top: 0; }
+.card-p:last-child { margin-bottom: 0; }
+
+.card-p-secondary {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--neutral-color-300);
+  margin: 0;
+}
+
+/* endregion: card */
+
+/* region: service */
+
+.service-section {
+  margin: 24px 0 0 0;
+}
+
+.service-section:first-child { margin-top: 0; }
+
+.service-h2 {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--neutral-color-300);
+  margin: 0 0 16px 0;
+}
+
+.subservice-h3 {
+  font-size: 16px;
+  font-weight: 500;
+  margin: 12px 0 0 0;
+}
+
+.subservice-description {
+  font-size: 14px;
+  font-weight: var(--regular);
+  color: var(--neutral-color-400);
+  margin: 2px 0 0 0;
+}
+
+/* endregion: service */
