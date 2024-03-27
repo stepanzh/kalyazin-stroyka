@@ -26,8 +26,8 @@
       <h1 class='card-h1'>География работ</h1>
     </header>
     <section class='card'>
-      <p class='card-p'><b>Тверская</b>, <b>Московская</b> и <b>Ярославская</b> области.</p>
-      <p class='card-p-secondary'>Примерно, до 300 километров от города Калязин.</p>
+      <p class='geo-p-primary'><b>Тверская</b>, <b>Московская</b> и <b>Ярославская</b> области.</p>
+      <p class='geo-p-secondary'>Примерно, до 300 километров от города Калязин.</p>
     </section>
   </article>
 
@@ -35,17 +35,25 @@
     <header>
       <h1 class='card-h1'>Услуги</h1>
     </header>
-    <section class='card service-card'>
+    <section class='card'>
       {% for service in services %}
-      <section class='service-section'>
-        <h2 class='service-h2'>{{ service.header }}</h2>
-        {% if service.description %}<p class='card-p'>{{ service.description }}</p>{% endif %}
+      <section class='serv'>
+        <header>
+          <h2 class='serv-h'>{{ service.header }}</h2>
+        </header>
+        {% if service.description %}
+        <p class='serv-p-primary'>{{ service.description }}</p>
+        {% endif %}
         {% if service.service_list %}
         <section>
           {% for subservice in service.service_list %}
           <section>
-            <h3 class='subservice-h3'>{{ subservice.header }}</h3>
-            {% if subservice.description %}<p class='subservice-description'>{{ subservice.description }}</p>{% endif %}
+            <header>
+              <h3 class='subserv-h'>{{ subservice.header }}</h3>
+            </header>
+            {% if subservice.description %}
+              <p class='subserv-p'>{{ subservice.description }}</p>
+            {% endif %}
           </section>
           {% endfor %}
         </section>
@@ -60,8 +68,8 @@
       <h1 class='card-h1'>Стоимость</h1>
     </header>
     <section class='card'>
-      <h2 class='card-h2'>Цена договорная</h2>
-      <p class='card-p'>На стоимость влияют удобство подвоза материала и объём подготовительных работ (например, выпиливание кустов).</p>
+      <header><h2 class='cost-h'>Цена договорная</h2></header>
+      <p class='cost-p'>На стоимость влияют удобство подвоза материала и объём подготовительных работ (например, выпиливание кустов).</p>
     </section>
   </article>
 
@@ -70,38 +78,38 @@
       <h1 class='card-h1'>Связаться с нами</h1>
     </header>
     <section class='card'>
-      <section>
+      <section class='cont'>
         <section>
           <header>
-            <h2 class='card-h3'>WhatsApp</h2>
+            <h2 class='cont-h'>WhatsApp</h2>
           </header>
           <section>
-            <p class='card-p'>{{ name }}, {{ phone_number }}.</p>
+            <p class='cont-p'>{{ name }}, {{ phone_number }}.</p>
           </section>
         </section>
         <a class='btn-primary' target='_blank' href='{{ whats_app_chat_link }}'>Открыть чат</a>
       </section>
 
-      <section>
+      <section class='cont'>
         <section>
           <header>
-            <h2 class='card-h3'>Мы перезвоним</h2>
+            <h2 class='cont-h'>Мы перезвоним</h2>
           </header>
           <section>
-            <p class='card-p'>Свяжемся в течение суток.</p>
+            <p class='cont-p'>Свяжемся в течение суток.</p>
           </section>
         </section>
         <!-- TODO: open dialog with yandex form -->
         <a class='btn-secondary' target='_blank' href='{{ whats_app_chat_link }}'>Заказать обратный звонок</a>
       </section>
 
-      <section>
+      <section class='cont'>
         <section>
           <header>
-            <h2 class='card-h3'>Вы позвоните</h2>
+            <h2 class='cont-h'>Вы позвоните</h2>
           </header>
           <section>
-            <p class='card-p'>Мы на связи с 11:00 утра до 20:00 вечера.</p>
+            <p class='cont-p'>Мы на связи с 11:00 утра до 20:00 вечера.</p>
           </section>
         </section>
         <!-- TODO: check that tel link works -->
