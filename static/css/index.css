@@ -139,7 +139,7 @@ h1, h2, h3, h4, h5, h6, p {
 .btn-secondary,
 .btn-tertiary {
   display: block;
-  padding: 10px 0;
+  padding: 8px 24px;
   margin: 8px 0 0 0;
 
   font-size: 16px;
@@ -259,7 +259,7 @@ h1, h2, h3, h4, h5, h6, p {
   .proj-wrap {
     display: grid;
     width: 768px;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
     column-gap: 32px;
     align-items: start;
   }
@@ -272,5 +272,11 @@ h1, h2, h3, h4, h5, h6, p {
   
   .proj-img {
     border-radius: 12px 12px 0 0;
+  }
+  
+  .btn-primary,
+  .btn-secondary,
+  .btn-tertiary {
+    display: inline-block;
   }
 }
