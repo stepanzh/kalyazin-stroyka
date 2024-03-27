@@ -1,8 +1,9 @@
 {% set longdash = '&#8212;' %}
 {% set name = 'Алексей' %}
 {% set phone_number = '+7 (915) 721 86-57' %}
-<!-- TODO: update whatsapp link -->
-{% set whats_app_chat_link = '' %}
+{% set whats_app_chat_link = 'https://wa.me/79157218657' %}
+{% set callback_link = 'https://forms.yandex.com/u/66002939e010db5243a471ce/' %}
+{% set tel_link = 'tel:+79157218657'%}
 {% set copyright_symbol = '©' %}
 {% set copyright_year = '2024' %}
 {% set site_developer_name = 'Степан Захаров' %}
@@ -101,7 +102,7 @@
             </section>
           </section>
           <!-- TODO: open dialog with yandex form -->
-          <a class='btn-secondary' target='_blank' href='{{ whats_app_chat_link }}'>Заказать обратный звонок</a>
+          <a class='btn-secondary' target='_blank' href='{{ callback_link }}'>Заказать обратный звонок</a>
         </section>
 
         <section class='cont card'>
@@ -114,7 +115,7 @@
             </section>
           </section>
           <!-- TODO: check that tel link works -->
-          <a class='btn-tertiary' target='_blank' href='tel:{{ phone_number }}'>{{ name }}, {{ phone_number }}</a>
+          <a class='btn-tertiary' target='_blank' href='{{ tel_link }}'>{{ name }}, {{ phone_number }}</a>
         </section>
       </section>
     </article>
