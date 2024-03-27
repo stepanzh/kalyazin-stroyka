@@ -256,8 +256,18 @@ h1, h2, h3, h4, h5, h6, p {
     width: 768px;
   }
   
+  .proj-wrap {
+    display: grid;
+    width: 768px;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 32px;
+    align-items: start;
+  }
+  
   .proj {
     padding: 0;
+    /* neglects width of .card */
+    width: auto;
   }
   
   .proj-img {

@@ -124,17 +124,19 @@
         <h1 class='card-h1'>Наши проекты</h1>
       </header>
       
-      {% for project in projects %}
-      <section class='card proj'>
-        <div>
-          <img class='proj-img' src='{{ project.image_links[0] }}' />
-        </div>
-        <section class='proj-desc'>
-          <h2 class='proj-h'>{{ project.header }}</h2>
-          <p class='proj-p'>{{ project.description }}</p>
+      <div class='proj-wrap'>
+        {% for project in projects %}
+        <section class='card proj'>
+          <div>
+            <img class='proj-img' src='{{ project.image_links[0] }}' />
+          </div>
+          <section class='proj-desc'>
+            <h2 class='proj-h'>{{ project.header }}</h2>
+            <p class='proj-p'>{{ project.description }}</p>
+          </section>
         </section>
-      </section>
-      {% endfor %}
+        {% endfor %}
+      </div>
     </article>
   </div>
 
