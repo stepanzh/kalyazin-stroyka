@@ -384,11 +384,11 @@ nav {
   
   .welcome-names {
     margin: 48px 64px;
-    align-items: center;
   }
   
   .welcome-name {
     margin: 0 48px;
+    align-items: center;
   }
   
   .welcome-fname {
